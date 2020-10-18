@@ -37,3 +37,8 @@ apt -y update
 apt install -y docker-ce docker-ce-cli containerd.io
 
 usermod -aG docker $user
+
+# 安装 docker-comopse 
+wget -c https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64 -O /usr/bin/docker-compose
+
+chmod 755 /usr/bin/docker-compose
