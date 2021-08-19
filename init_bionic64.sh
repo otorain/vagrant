@@ -14,7 +14,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted univers
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse"
 
-echo "$source_list" > test.txt
+echo "$source_list" > /etc/apt/sources.list
 
 # 安装 docker
 apt -y update
@@ -34,11 +34,6 @@ add-apt-repository -y\
    stable"
 
 apt -y update 
-apt install -y docker-ce docker-ce-cli containerd.io
+apt install -y docker-ce docker-ce-cli containerd.io docker-compose
 
 usermod -aG docker $user
-
-# 安装 docker-comopse 
-wget -c https://github.com/docker/compose/releases/download/1.26.2/docker-compose-Linux-x86_64 -O /usr/bin/docker-compose
-
-chmod 755 /usr/bin/docker-compose
